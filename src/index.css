@@ -1,0 +1,60 @@
+/* Import Tailwind CSS*/
+@import "tailwindcss";
+
+
+/* Custom variant for dark mode, applying to elements within .dark */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Define custom theme colors */
+@theme {
+  --color-primary: #262525; /* Primary text/button color (dark gray) */
+  --color-light: #e0e0e3; /* Background/input color (light gray) */
+}
+
+/* Layer for theme-specific styles */
+@layer theme {
+  /* Dark mode theme overrides */
+  .dark {
+    --color-primary: #e0e0e3; /* Light gray for text/buttons in dark mode */
+    --color-light: #262525; /* Dark gray for backgrounds in dark mode */
+  }
+}
+
+/* Global styles for scrollbars */
+::-webkit-scrollbar {
+  width: 0; /* Hide scrollbar in WebKit browsers */
+}
+
+/* Cross-browser scrollbar hiding */
+html {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+/* Global box-sizing reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Button hover state for consistency */
+button:hover {
+  color: var(--color-primary);
+}
+
+/* Base body styles */
+body {
+  background: white; /* Use theme color for consistency */
+  min-height: 100dvh; /* Ensure full viewport height */
+  margin: 0; /* Remove default margin */
+}
+
+/* Dark mode body styles */
+.dark body {
+  background: black; /* Use theme color for dark mode */
+}
+
+button{
+  cursor: pointer;
+}
